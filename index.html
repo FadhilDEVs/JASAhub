@@ -63,7 +63,7 @@ footer{display:block;border:0;padding:0;font-size:inherit;color:inherit}.sitefoo
  * Kosong = pratinjau katalog saja. Tidak ada pesanan/akun palsu.
  * Spreadsheet ID dan secret TIDAK perlu dimasukkan ke file publik ini.
  */
-const CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbzl4EVeXMuFewuXPz6UbPXBicLIhmq9PflHhtCmI4wWdbfKGigtf4v-LRCQchcWkGjG/exec' };
+const CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbz-3nkQeDPQGNYxkxzpXtQKPTtNaWQ6qKs8juRQ5svxmkZKHPJ0qPXOkxnNw_HGlXUl/exec' };
 const $ = (s,r=document)=>r.querySelector(s);
 const esc = v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rupiah = n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
