@@ -213,7 +213,7 @@ input:not([type=checkbox]):not([type=radio]),textarea,select{min-width:0;max-wid
  * Kosong = pratinjau katalog saja. Tidak ada pesanan/akun palsu.
  * Spreadsheet ID dan secret TIDAK perlu dimasukkan ke file publik ini.
  */
-const CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbyttw5jLj8F-bZWvc2rQHXbQRPS8yF_vMCg0gBvNY79VoiNXNfVgJPdvmHJzaPKcVM/exec' };
+const CONFIG = { API_URL: 'https://script.google.com/macros/s/AKfycbzl4EVeXMuFewuXPz6UbPXBicLIhmq9PflHhtCmI4wWdbfKGigtf4v-LRCQchcWkGjG/exec' };
 const $ = (s,r=document)=>r.querySelector(s);
 const esc = v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rupiah = n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
@@ -503,6 +503,36 @@ scanMedia();
 
 
 function help(){legacyHelp();const page=$('#page');page.innerHTML=page.innerHTML.replaceAll('Review Pelanggan','Proses Pengerjaan').replace('kirim brief, lalu ikuti instruksi pembayaran.','simpan pesanan, bayar QRIS, lalu kirim bukti melalui WhatsApp.').replace('review hasil dan ajukan revisi bila perlu.','buka hasil dan ajukan revisi bila perlu.');const intro=document.createElement('section');intro.className='panel';intro.style.marginBottom='24px';intro.innerHTML='<h2 style="font-size:20px;margin-bottom:14px">Pembayaran QRIS & Status Pesanan</h2><p class="tiny muted">Pilih jasa dan paket, masuk saat checkout, simpan pesanan, lalu bayar melalui QRIS yang disediakan admin. Tekan Kirim Bukti Pembayaran, lampirkan screenshot transfer sendiri di WhatsApp, dan tekan Kirim.</p><div class="row wrap"><span class="badge orange">1 · Belum Dibayar</span><span class="badge">2 · Proses Pengerjaan</span><span class="badge green">3 · Selesai</span></div><p class="tiny muted" style="margin-top:16px">Status tetap Belum Dibayar selama menunggu pemeriksaan bukti. Hanya admin yang mengubah status setelah memastikan dana masuk, lalu menyelesaikan pekerjaan. Mengirim bukti tidak memverifikasi transaksi secara otomatis.</p>';page.prepend(intro);}
+/* JASAhub: scroll after opening a catalog service, without changing CSS/API. */
+(() => {
+  if (window.JASAhubCatalogScroll) return;
+  let frame = 0;
+  function scrollToTop() {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+        const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector('main')?.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, left: 0, behavior: reduced ? 'instant' : 'smooth' });
+      });
+    });
+  }
+  document.addEventListener('click', event => {
+    if (!(event.target instanceof Element) || event.defaultPrevented || event.button > 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const trigger = event.target.closest('[data-action="detail"], a[href^="#service/"]');
+    if (trigger) { scrollToTop(); return; }
+    const card = event.target.closest('article.service');
+    if (!card || event.target.closest('a,button,input,textarea,select,label,[contenteditable="true"]') || window.getSelection()?.toString()) return;
+    // Reuse the existing button handler: navigation, selected service, and packages remain intact.
+    const button = card.querySelector('[data-action="detail"]');
+    if (button && !button.disabled) button.click();
+  });
+  window.addEventListener('hashchange', () => {
+    if (location.hash.startsWith('#service/')) scrollToTop();
+  });
+  window.JASAhubCatalogScroll = { scrollToTop };
+})();
+
 boot();
 </script>
 </body>
