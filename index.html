@@ -154,6 +154,31 @@ input:not([type=checkbox]):not([type=radio]),textarea,select{min-width:0;max-wid
  .service .meta{font-size:10px}.service .artpaper{width:36px;height:52px}
 }
 
+
+/* Mobile hero illustration below the introduction, matching the reference. */
+@media(max-width:650px){
+ .hero{background:radial-gradient(ellipse at 85% 40%,#4b137a63,transparent 70%);margin-bottom:12px}
+ .heroart{display:grid;place-items:center;width:100%;max-width:100%;height:auto;min-height:0;margin:8px 0 0;transform:none;overflow:hidden;overflow:clip}
+ .heroart:before{width:85%;max-width:340px;height:230px;left:8%;top:10%}
+ .heroart .scene{position:relative;width:100%;max-width:440px;height:clamp(235px,74vw,330px);margin:0 auto}
+ .heroart .laptop{width:75%;max-width:310px;height:auto;right:5%;top:22%;transform:rotateY(-12deg) rotateX(8deg) rotateZ(9deg)}
+ .heroart .screen{height:auto;aspect-ratio:1.6;padding:8px;gap:6px;border-width:6px;border-bottom-width:10px}
+ .heroart .screenbar{width:15%;padding:8px 4px;flex-shrink:0}
+ .heroart .screenbar i{margin-bottom:10px}
+ .heroart .screenmain{padding:8px;min-width:0}
+ .heroart .screenhead{height:auto;min-height:28px;margin-bottom:8px;padding:6px;font-size:8px}
+ .heroart .screenblocks{gap:5px}.heroart .screenblocks i{height:clamp(35px,12vw,55px)}
+ .heroart .keyboard{height:16px}
+ .heroart .floating-tile{width:clamp(44px,14vw,65px);height:clamp(50px,16vw,73px);left:3%;top:44%;bottom:auto}
+ .heroart .floating-tile.two{width:clamp(54px,17vw,78px);height:clamp(54px,17vw,78px);left:17%;top:3%;bottom:auto}
+ .heroart .floating-tile.three{width:clamp(36px,11vw,50px);height:clamp(43px,13vw,59px);left:auto;right:8%;top:9%;bottom:auto}
+ .heroart .floating-tile.four{width:clamp(36px,11vw,50px);height:clamp(40px,12vw,55px);left:15%;top:auto;bottom:8%}
+ .heroart .floating-tile svg{width:26px;height:26px}
+ .heroart .orbit{width:76%;max-width:340px;height:150px;bottom:1%;left:12%}
+ .heroart .orbit.two{width:94%;max-width:410px;height:190px;bottom:-2%;left:3%}
+ .heroart .orbit-spark{right:5%;top:8%}
+}
+
 </style>
 </head>
 <body>
