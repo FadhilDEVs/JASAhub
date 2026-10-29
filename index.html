@@ -123,6 +123,37 @@ input:not([type=checkbox]):not([type=radio]),textarea,select{min-width:0;max-wid
 }
 @media(max-width:359px){.categorytiles{grid-template-columns:repeat(2,minmax(0,1fr))}.main,.workspace .main{padding:18px 12px}.topbar,.workspace .topbar{gap:8px}.brand-image{width:96px}.hero .row>.btn{flex:1 1 100%}.cardfoot{gap:10px}.cardfoot .btn{min-width:100px}}
 
+
+/* Mobile catalog: compact two-column cards matching the reference. */
+@media(max-width:650px){
+ .grid,.workspace .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .service{display:flex;flex-direction:column;height:100%;min-width:0}
+ .service .thumb{flex-shrink:0;width:100%;height:auto;aspect-ratio:16/9}
+ .service .thumb img{display:block;width:100%;height:100%;object-fit:cover}
+ .servicebody{display:flex;flex:1;flex-direction:column;padding:12px;min-width:0}
+ .service h3{font-size:14px;line-height:1.5;min-height:4.5em;margin:8px 0 10px}
+ .service .cat{font-size:10px;line-height:1.5;letter-spacing:.04em}
+ .service .desc{font-size:12px;line-height:1.65;min-height:3.3em;margin:0 0 12px;-webkit-line-clamp:2}
+ .service .meta{font-size:11px;line-height:1.5;gap:6px 10px;margin:8px 0 14px;flex-wrap:wrap}
+ .service .meta svg{width:13px;height:13px;flex-shrink:0}
+ .service .cardfoot{margin-top:auto;flex-wrap:nowrap;gap:8px;align-items:center;padding-top:12px}
+ .service .price{min-width:0;flex:1}
+ .service .price small{font-size:10px;line-height:1.5}
+ .service .price strong{font-size:17px;line-height:1.5;letter-spacing:-.04em}
+ .service .cardfoot .btn{width:44px;min-width:44px;height:44px;min-height:44px;padding:10px;flex:0 0 44px}
+ .service .cardfoot .btn .buttonlabel{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .service .thumb .badge{font-size:9px;padding:3px 6px;max-width:calc(100% - 16px);top:8px;left:8px}
+ .service .art{padding:10px;gap:8px}
+ .service .arttype{font-size:18px;max-width:90px}.service .arttype small{font-size:8px}
+ .service .artpaper{width:48px;height:68px}.service .artpaper svg{width:26px;height:26px}
+}
+@media(max-width:359px){
+ .grid,.workspace .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .servicebody{padding:10px}.service h3{font-size:13px}.service .cat{font-size:9px}
+ .service .price strong{font-size:14px}.service .cardfoot{gap:5px}
+ .service .meta{font-size:10px}.service .artpaper{width:36px;height:52px}
+}
+
 </style>
 </head>
 <body>
