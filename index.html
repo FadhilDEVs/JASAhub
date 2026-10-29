@@ -31,6 +31,98 @@ footer{display:block;border:0;padding:0;font-size:inherit;color:inherit}.sitefoo
 
 
 .qris-panel{border:1px solid #67458b;background:#17122b;border-radius:14px;padding:20px;display:grid;gap:10px}.qris-frame{background:#fff;padding:20px;border-radius:12px;max-width:360px;width:100%;margin:10px auto}.qris-frame img{display:block;width:100%;height:auto;max-height:480px;object-fit:contain}.verification{padding:16px;border:1px solid #705396;border-radius:12px;background:#211732;align-items:flex-start}.verification input{flex-shrink:0;margin-top:4px}.qris-admin{padding:20px;border:1px solid #59416f;border-radius:13px}.error{overflow-wrap:anywhere}.error a{color:#f0d1ff;text-decoration:underline}.error .btn{margin:8px}.qris-panel .btn{justify-self:center}.qris-panel h3{font-size:18px}@media(max-width:600px){.qris-panel{padding:16px}.qris-frame{padding:14px}.qris-admin{padding:16px}.verification{font-size:13px}}
+
+/* Responsive fit and navigation drawer */
+:root{--header-height:86px}
+html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip}
+body{min-width:0}
+.shell,.workspace .shell{margin-left:0;min-width:0;max-width:100%}
+.main,.workspace .main{width:100%;min-width:0}
+.main :where(section,article,aside,div,form,label),.dialog :where(section,div,form,label){min-width:0}
+:where(h1,h2,h3,h4,p,a,li,strong,.badge,.check,.notice,.ordercard,.adminitem){overflow-wrap:anywhere}
+img,video,canvas{max-width:100%}
+input:not([type=checkbox]):not([type=radio]),textarea,select{min-width:0;max-width:100%;width:100%}
+.formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.topbar,.workspace .topbar{height:var(--header-height);min-height:var(--header-height);gap:16px;z-index:80}
+#menuToggle{display:inline-grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-height:44px}
+.topbar>.brand{flex-shrink:0}
+.topactions{min-width:0;flex-shrink:0;margin-left:auto}
+.desktopnav{gap:20px;min-width:0}
+.sidebar,.workspace .sidebar{display:flex;position:fixed;top:var(--header-height);bottom:0;left:0;width:min(288px,calc(100% - 48px));max-width:100%;padding:24px 18px;z-index:70;transform:translateX(-100%);visibility:hidden;pointer-events:none;transition:transform .2s,visibility .2s;overflow-y:auto;overscroll-behavior:contain}
+.sidebar.open,.workspace .sidebar.open{transform:translateX(0);visibility:visible;pointer-events:auto}
+.sidebar>.brand{display:flex;margin-bottom:24px}
+.mobilebackdrop.open{display:block;position:fixed;inset:var(--header-height) 0 0;background:#03050caa;backdrop-filter:blur(3px);z-index:65}
+.hero{min-width:0;overflow:hidden;overflow:clip}
+.heroart,.scene{min-width:0;max-width:100%}
+.sectionhead,.row,.formfoot,.orderactions,.footerbottom{flex-wrap:wrap}
+.sectionhead>*,.row>*,.tools>*,.formfoot>*{min-width:0;max-width:100%}
+.searchbox{min-width:0}
+.dialog{max-width:calc(100% - 24px);overflow-x:hidden;overscroll-behavior:contain}
+.dialoghead h2{min-width:0;flex:1}
+.dialoghead>.iconbtn{flex-shrink:0}
+.checklist li{min-width:0;overflow-wrap:anywhere}
+.checklist svg{flex-shrink:0}
+@media(max-width:1100px){.desktopnav{display:none}}
+@media(max-width:900px){:root{--header-height:78px}.topbar,.workspace .topbar{padding:10px 20px}.sidebar,.workspace .sidebar{top:var(--header-height)}.mobilebackdrop.open{top:var(--header-height)}}
+@media(max-width:650px){
+ .topbar,.workspace .topbar{padding:10px 12px;gap:10px}
+ .topbar>.brand{flex:1;min-width:0;margin-right:0}
+ .brand-image{width:112px;max-width:100%;height:42px}
+ .topactions{gap:8px;margin-left:0}
+ .topactions .userlabel,.topactions .avatar{display:none}
+ .topactions .btn{font-size:14px;min-height:44px;padding:8px 12px}
+ .topactions .iconbtn{width:44px;height:44px}
+ .main,.workspace .main{padding:22px 16px}
+ .hero{display:block;min-height:0;margin:0 0 20px}
+ .herotext{padding:8px 0 14px}
+ .hero h2{font-size:clamp(30px,8.2vw,40px);line-height:1.2;max-width:100%;letter-spacing:-.04em}
+ .hero p{font-size:16px;line-height:1.75}
+ .heroart{display:none}
+ .hero .row{gap:10px}
+ .hero .btn{font-size:14px;min-height:46px;padding:10px 16px}
+ .herofoot{font-size:12px;gap:10px 14px}
+ .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px;padding:12px 0 24px}
+ .metric strong{font-size:26px}.metric span{font-size:13px;line-height:1.5;display:block}
+ .categorytiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ .categorytile{min-height:106px;padding:14px 8px}.categorytile strong{font-size:12px;line-height:1.5}
+ .grid,.workspace .grid{grid-template-columns:minmax(0,1fr);gap:18px}
+ .service .thumb{height:auto;aspect-ratio:16/9}
+ .service .thumb img{width:100%;height:100%;object-fit:cover}
+ .service .art{min-height:100%;height:100%;padding:20px}
+ .service .arttype{font-size:28px;max-width:160px}.service .arttype small{font-size:11px}
+ .service .artpaper{width:90px;height:116px;flex-shrink:0}
+ .service .artpaper svg{width:42px;height:42px}
+ .servicebody{padding:18px}.service h3{font-size:18px;line-height:1.5;min-height:0;margin:8px 0}
+ .service .cat{font-size:12px}.service .desc{font-size:14px;line-height:1.7;min-height:0}
+ .service .meta{font-size:12px;gap:14px;margin:14px 0;flex-wrap:wrap}
+ .cardfoot{flex-direction:row;align-items:center;gap:16px}
+ .price small{font-size:12px}.price strong{font-size:21px}
+ .cardfoot .btn{width:auto;min-width:110px;min-height:44px;height:auto;padding:10px 14px;font-size:14px}
+ .cardfoot .btn .buttonlabel{position:static;width:auto;height:auto;clip-path:none;overflow:visible}
+ .sectionhead h2{font-size:22px}.sectionhead p{font-size:14px}.sectionlink,.count{font-size:12px}
+ .tools{display:flex;flex-wrap:wrap;gap:10px}.searchbox{flex:1 1 100%;width:100%;min-height:48px}.searchbox input{font-size:16px}
+ .tools select{flex:1 1 140px;width:auto;max-width:100%;min-height:46px;font-size:16px}
+ .filters{gap:8px;flex-wrap:wrap}.chip{font-size:13px;min-height:44px;padding:9px 12px;white-space:normal}
+ .formgrid,.dialogbody .formgrid,.detail-side{grid-template-columns:minmax(0,1fr)}
+ .full{grid-column:1/-1}
+ .dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}
+ .dialoghead{padding:16px;gap:12px}.dialoghead h2{font-size:18px}.dialogbody{padding:18px}
+ .dialogbody label,.field,.check{font-size:14px}.field small,.formhint{font-size:12px;line-height:1.6}
+ input:not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px}
+ .pkg-editor{padding:16px}.pkg-editor h3{font-size:17px}.pkg-editor .btn{min-height:44px}
+ .formfoot,.orderactions{gap:10px}.formfoot .btn,.orderactions .btn{min-height:44px;white-space:normal}
+ .stats,.stats.six,.workspace .stats.six{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .stat span{font-size:12px}.stat strong{font-size:25px}
+ .adminitem{width:100%;gap:14px;align-items:stretch}.adminitem h3{font-size:16px}.adminitem p{font-size:14px}
+ .adminitem>.row{width:100%;flex-wrap:wrap}.adminitem .btn{min-height:44px}
+ .orderbody{grid-template-columns:minmax(0,1fr)}.orderbody .label{font-size:12px}
+ .package .checklist,.package p{font-size:14px}.package .btn{font-size:14px;min-height:46px}
+ .sitefooter,.workspace .sitefooter{grid-template-columns:minmax(0,1fr);gap:18px}
+ .sitefooter p,.sitefooter a,.sitefooter button,.footerbottom{font-size:14px}
+ .tiny,.notice{font-size:13px}.previewnote{font-size:12px}
+}
+@media(max-width:359px){.categorytiles{grid-template-columns:repeat(2,minmax(0,1fr))}.main,.workspace .main{padding:18px 12px}.topbar,.workspace .topbar{gap:8px}.brand-image{width:96px}.hero .row>.btn{flex:1 1 100%}.cardfoot{gap:10px}.cardfoot .btn{min-width:100px}}
+
 </style>
 </head>
 <body>
@@ -42,7 +134,7 @@ footer{display:block;border:0;padding:0;font-size:inherit;color:inherit}.sitefoo
 <span id="breadcrumb" hidden></span><div class="topactions" id="topactions"></div>
 </header>
 <div id="navBackdrop" class="mobilebackdrop"></div>
-<aside class="sidebar" id="sidebar" aria-label="Navigasi workspace">
+<aside class="sidebar" id="sidebar" aria-label="Navigasi workspace" aria-hidden="true" inert>
 <a class="brand" href="#catalog" aria-label="JASAhub.id — Beranda"></a><p class="navlabel">WORKSPACE</p>
 <nav class="navlinks" id="nav">
 <a class="navlink" data-route="catalog" href="#catalog"><span data-icon="grid"></span>Beranda</a>
@@ -171,10 +263,16 @@ async function compressImage(file,preserveAlpha=false){if(file.size>5*1024*1024)
 function editOrder(id){const o=S.admin.orders.find(x=>x.id===id);if(!o)return;const u=S.admin.customers.find(x=>x.id===o.userId);showModal('Kelola pesanan',`<div class="checkoutsummary"><h3>${esc(o.title)}</h3><span class="tiny">${esc(o.id)}<br>${esc(u?.name||'')} · ${esc(u?.phone||'')} · ${rupiah(o.price)}</span></div><p class="detailtext">${esc(o.brief)}</p>${safeUrl(o.materialUrl)?`<p><a href="${esc(safeUrl(o.materialUrl))}" target="_blank" rel="noopener noreferrer">Buka tautan bahan</a></p>`:''}<p class="tiny muted">Deadline ${esc(o.deadline)} · Sisa revisi ${Number(o.revisions)}</p><p class="detailtext">Referensi pembayaran: ${esc(o.paymentReference||'Belum dikirim')}</p><form id="orderForm" data-id="${esc(id)}" class="formgrid"><label class="field">Status pengerjaan<select name="status">${v2states.map(s=>`<option ${s===o.status?'selected':''}>${s}</option>`).join('')}</select></label><label class="field">Status pembayaran<select name="paymentStatus">${payments.map(s=>`<option ${s===o.paymentStatus?'selected':''}>${s}</option>`).join('')}</select></label><label class="field full">Tautan hasil (HTTPS)<input name="resultUrl" type="url" maxlength="2000" value="${esc(o.resultUrl)}"></label><label class="field full">Catatan untuk pelanggan<textarea name="adminNote" maxlength="2000">${esc(o.adminNote)}</textarea></label><div class="error full" id="orderError" role="alert" tabindex="-1"></div><div class="formfoot full"><button type="button" class="btn" data-action="close">Batal</button><button type="submit" class="btn primary">Simpan Perubahan</button></div></form>`);}
 function referenceModal(id,type){const revision=type==='revision';showModal(revision?'Ajukan revisi':'Konfirmasi pembayaran',`<p class="muted tiny">${revision?'Jelaskan perubahan sesuai brief awal. Satu pengajuan mengurangi satu jatah revisi.':'Masukkan nama pengirim, waktu transfer, bank, dan/atau tautan bukti. Admin akan memeriksa pembayaran secara manual.'}</p><form id="referenceForm" data-id="${esc(id)}" data-type="${type}" class="stack"><label class="field">${revision?'Catatan revisi':'Referensi pembayaran'}<textarea name="value" minlength="5" maxlength="${revision?1500:300}" required></textarea></label><div id="referenceError" class="error" role="alert" tabindex="-1"></div><button class="btn primary" type="submit">Kirim ${revision?'Revisi':'Konfirmasi'}</button></form>`);}
 async function route(){const version=++S.routeVersion;let hash=location.hash.slice(1)||'catalog';if(hash==='main')hash='catalog';const page=hash.split('/')[0];const name={catalog:'Eksplor Jasa',orders:'Pesanan Saya',admin:'Dashboard Admin',help:'Cara Pesan & FAQ'}[page]||'Eksplor Jasa';document.title=name+' — JASAhub.id';$('#breadcrumb').textContent=name;document.querySelectorAll('[data-route]').forEach(a=>{a.classList.toggle('active',a.dataset.route===page);if(a.dataset.route===page)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});closeNav();setNotice();if(page==='orders')await ordersPage(version);else if(page==='admin')await adminPage(version);else if(page==='help')help();else catalog();hydrate();}
-function closeNav(){$('#sidebar').classList.remove('open');$('#navBackdrop').classList.remove('open');$('#menuToggle').setAttribute('aria-expanded','false');$('#menuToggle').setAttribute('aria-label','Buka navigasi');}
+function setNavOpen(open){
+ const sidebar=$('#sidebar'),button=$('#menuToggle');
+ sidebar.classList.toggle('open',open);sidebar.inert=!open;sidebar.setAttribute('aria-hidden',String(!open));
+ $('#navBackdrop').classList.toggle('open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Tutup navigasi':'Buka navigasi');
+ if(!open&&sidebar.contains(document.activeElement))button.focus({preventScroll:true});
+}
+function closeNav(){setNavOpen(false);}
 async function refreshCatalog(){const d=await api('catalog');S.products=d.products;S.categories=d.categories;S.settings=d.settings;S.loadError=false;}
 async function boot(){topbar();hydrate();$('#page').innerHTML=busy();if(!CONFIG.API_URL){S.products=DEMOS;S.categories=CATEGORIES.map((name,i)=>({id:'C-'+i,name}));}else{try{await refreshCatalog();}catch(e){S.loadError=true;S.connectionError=e.message;toast(e.message);}if(S.token){try{S.user=await api('me');}catch(_){S.token='';sessionStorage.removeItem('jh_token');}}}topbar();await route();}
-$('#menuToggle').addEventListener('click',()=>{const open=!$('#sidebar').classList.contains('open');$('#sidebar').classList.toggle('open',open);$('#navBackdrop').classList.toggle('open',open);$('#menuToggle').setAttribute('aria-expanded',String(open));$('#menuToggle').setAttribute('aria-label',open?'Tutup navigasi':'Buka navigasi');});$('#navBackdrop').addEventListener('click',closeNav);
+$('#menuToggle').addEventListener('click',()=>setNavOpen(!$('#sidebar').classList.contains('open')));$('#navBackdrop').addEventListener('click',closeNav);
 $('#modal').addEventListener('close',()=>{S.pending=false;S.returnFocus?.isConnected&&S.returnFocus.focus({preventScroll:true});});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav();});
 window.addEventListener('hashchange',()=>{route();$('#main').focus({preventScroll:true});});
